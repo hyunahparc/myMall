@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Navbar,Container,Nav,NavDropdown, Jumbotron,Button } from 'react-bootstrap'; 
 import './App.css';
+import Data from "./data";
 
 function App() {
+
+  let [data, data변경함수] = useState([Data]);
+
   return (
     <div className="App">
       <Navbar bg="light" expand="lg">
   <Container>
-    <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+    <Navbar.Brand href="#home">Shoes Mall</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto">
@@ -25,8 +29,8 @@ function App() {
   </Container>
 </Navbar>
 
-  <Jumbotron className="background">
-  <div className="jumboText">
+  <div className="intro">
+    <div className="intro_text">
     <h1>20% season offf</h1>
     <p>
     This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
@@ -36,24 +40,25 @@ function App() {
     <Button variant="primary">Learn more</Button>
     </p>
     </div>
-  </Jumbotron>
+  </div>
+  
 
   <div className="container">
     <div className="row">
       <div className="col-md-4">
         <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" />
-      
-      <h4>상품명</h4>
-      <p>상품설명&가격</p></div>
+      <h4>{ Data[0].title }</h4>
+      <p>{ Data[0].content }</p>
+      </div>
       <div className="col-md-4">
       <img src="https://codingapple1.github.io/shop/shoes2.jpg" width="100%" />
-      <h4>상품명</h4>
-      <p>상품설명&가격</p>
+      <h4>{ Data[1].title }</h4>
+      <p>{ Data[1].content }</p>
       </div>
       <div className="col-md-4">
       <img src="https://codingapple1.github.io/shop/shoes3.jpg" width="100%" />
-      <h4>상품명</h4>
-      <p>상품설명&가격</p>
+      <h4>{ Data[2].title }</h4>
+      <p>{ Data[2].content }</p>
       </div>
     </div>
   </div>
